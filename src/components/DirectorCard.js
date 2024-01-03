@@ -5,7 +5,7 @@ export default function DirectorCard({name, movies}) {
         <h2>{name}</h2>
         <ul>
             {
-                movies.map( mov => <p key={mov}>{mov}</p>)
+                movies.map( mov => <li key={mov}>{mov}</li>)
             }
         </ul>
         

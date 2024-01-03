@@ -7,7 +7,6 @@ function Movie() {
   const [movie, setMovie] = useState(null)
 
   useEffect( () => {
-    console.log("hello?")
     fetch(`http://localhost:4000/movies/${params.id}`)
     .then(res => res.json())
     .then(data => setMovie(data))

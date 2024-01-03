@@ -18,6 +18,7 @@ function Actors() {
         <NavBar/>
       </header>
       <main>
+        <h1>Actors Page</h1>
         {actors.map( actor => <ActorCard name={actor.name} movies={actor.movies} key={actor.id}/>)}
       </main>
     </>

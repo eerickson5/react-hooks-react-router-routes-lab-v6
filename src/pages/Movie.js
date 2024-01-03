@@ -3,16 +3,19 @@ import NavBar from "../components/NavBar";
 import { useParams } from "react-router-dom";
 
 function Movie() {
-  const id = useParams().id
-  const [movie, setMovie] = useState({})
+  const params = useParams()
+  const [movie, setMovie] = useState(null)
 
-  useEffect( ()=> {
-    fetch(`http://localhost:4000/movies/${id}`)
+  useEffect( () => {
+    console.log("hello?")
+    fetch(`http://localhost:4000/movies/${params.id}`)
     .then(res => res.json())
     .then(data => setMovie(data))
-  }, [id])
+  }, [params])
 
 
+
+  if(movie === null ) return <h1>Loading...</h1>
   return (
     <>
       <header>
@@ -20,7 +23,7 @@ function Movie() {
       </header>
       <main>
         <h1>{movie.title}</h1>
-        <p>{movie.time} minutes</p>
+        <p>{movie.time}</p>
         {
           movie.genres.map( genre => <span key={genre}>{genre}</span>)
         }
